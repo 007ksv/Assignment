@@ -20,4 +20,4 @@ Here is a quick overview, what this web app can do
 * Clone the repo using `git clone https://github.com/007ksv/Assignment.git`
 * Install all the requirements using `pip install -r requirements.txt`
 * Make all the migrations using `python manage.py makemigrations` and then `python manage.py migrate`.
-* Then start th server `python manage.py runserver`
+* Then start the server `python manage.py runserver`
