@@ -1,0 +1,9 @@
+{% extends 'user_handling/base.html' %}
+{% block content %}
+	<img class="rounded-circle mr-3" height="50px" width="50px" src="{{request.user.profile.image.url}}" class="align-self-start mr-3" alt="...">
+	<h4>Welcome {{request.user.username}} ({{request.user.staff_status}})</h4>
+	{% if request.user.staff_status == 'employee' %}
+		<small class="text-muted">You have {{request.user.leave_pending}} leaves pending.</small>
+	{% endif %}
+	
+{% endblock content %}

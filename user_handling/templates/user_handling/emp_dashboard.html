@@ -1,0 +1,24 @@
+{% extends "user_handling/base.html" %}
+{% block content %}
+	<div class="container">
+		{% if all_applications %}
+			{% for app in all_applications %}
+				<div class="pb-3">
+					{% if app.application_status == 'approved' %}
+						<h3>{{app.description}} <small class="text-muted">({{app.application_status}})</small></h3>
+						<small class="text-muted">You application is approved, Enjoy your holidays</small>
+						<p>Form {{app.start_date}} to {{app.end_date}}</p>
+					{% elif app.application_status == 'declined' %}
+						<h3>{{app.description}} <small class="text-muted">({{app.application_status}})</small></h3>
+						<small class="text-muted">You application is Decliend, Contact your manager in case of emergency</small>
+						<p>Form {{app.start_date}} to {{app.end_date}}</p>
+					{% else %}
+						<h3>{{app.description}} <small class="text-muted">({{app.application_status}})</small></h3>
+						<p>Form {{app.start_date}} to {{app.end_date}}</p>
+					{% endif %}
+
+				</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+{% endblock content %}

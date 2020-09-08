@@ -1,0 +1,26 @@
+{% extends "user_handling/base.html" %}
+{% block content %}
+	<div class="container">
+		{% if all_applications %}
+			{% for app in all_applications %}
+				<div class="pb-3">
+					
+					<a href="#">{{app.employee.first_name}} {{app.employee.last_name}} ({{app.employee.username}})</a>
+					<h3>{{app.description}}</h3><small class="text-muted">{{app.date_posted}}</small>
+					<hr>
+					<ul>
+						<li>Employee apply for leave application from {{app.start_date}} to {{app.end_date}}
+						</li>
+						<li>
+							Application is {{app.application_status}} by Manager.
+							
+						</li>
+						<li>
+							Employee has {{app.employee.leave_pending}} Leaves pending.
+						</li>
+					</ul>
+				</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+{% endblock content %}

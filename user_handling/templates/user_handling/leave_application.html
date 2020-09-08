@@ -1,0 +1,23 @@
+{% extends "user_handling/base.html" %}
+{% block content %}
+	<div class="container">
+		<form class="form-group needs-validation" method="POST" action="{% url 'leave_application' request.user %}">
+			{% csrf_token %}
+			<h2>Leave Application</h2>
+			<div class="pt-3">
+				<textarea rows="8" cols="50" placeholder="Description" name="description" required></textarea>
+			</div>
+			<div class="pt-3">
+				<p>Start date</p>
+				<input type="date" name="start_date" placeholder="Start Date" required>
+			</div>
+			<div class="pt-3">
+				<p>End date</p>
+				<input type="date" name="end_date" placeholder="End Date" required>
+			</div>
+			<div class="pt-3">
+				<button class="btn btn-outline-primary" type="submit">Apply</button>
+			</div>
+		</form>
+	</div>
+{% endblock content %}

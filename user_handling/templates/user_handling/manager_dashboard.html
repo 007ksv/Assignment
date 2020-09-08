@@ -1,0 +1,26 @@
+{% extends "user_handling/base.html" %}
+{% block content %}
+	<div class="container">
+		{% if all_applications %}
+			{% for app in all_applications %}
+				<div class="pb-3">
+					<a href="#">{{app.employee.first_name}} {{app.employee.last_name}} ({{app.employee.username}})</a><small class="text-muted"> apply on {{app.date_posted}}</small>
+					<h3>{{app.description}} <small class="text-muted">({{app.application_status}})</small></h3>
+					<p>Form {{app.start_date}} to {{app.end_date}}</p>
+					<div class="pt-3">
+						<form method="post" action="{% url 'handle_app_status' app.id %}">
+							{% csrf_token %}
+							{% if app.application_status ==  'pending' %}
+								<button class="btn btn-sm btn-success" type="submit" name='status' value="approved">Approve</button>
+								<button class="btn btn-sm btn-danger" type="submit" name='status' value="declined">Decline</button>
+							{% endif %}
+							
+						</form>
+						
+					</div>
+					<hr>
+				</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+{% endblock content %}
