@@ -28,7 +28,7 @@ def register(request):
 				return redirect('login')
 			else:
 				messages.info(request, f'Username {username} already taken')
-				return render(request, 'user-handling/register.html', {'fname': fname, 'lname': lname})
+				return render(request, 'user_handling/register.html', {'fname': fname, 'lname': lname})
 		else:
 			messages.info(request, 'Both password not match')
 			context = {
