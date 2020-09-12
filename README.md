@@ -7,6 +7,7 @@ Here is a quick overview, what this web app can do
 * Employee can login using their credentials. 
 * Can create an application for Leave where they have to fill the basic field of application (Description, start date and end date).
 * Can keep track of all of his/her applications on **Dashboard.** 
+* Employee cann't take leave if they don't have any leave pending
 
 ## What Manager can do
 * Can Approve or Decline the employee Leave application.
